@@ -1,0 +1,19 @@
+_format_version: "2.1"
+_transform: true
+
+services:
+  - name: hello
+    protocol: grpc
+    host: "127.0.0.1"
+    port: 50001
+    routes:
+      - name: root
+        protocols:
+          - grpc
+        paths:
+          - /
+    plugins:
+      - name: validate-protobuf
+        config:
+          ignore_unknown_types: false
+
